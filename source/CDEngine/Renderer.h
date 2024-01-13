@@ -9,13 +9,13 @@ using namespace gui;
 class Renderer{
 protected:
 	IrrlichtDevice* device = nullptr;
-	IVideoDriver* driver = nullptr;
-	ISceneManager* sceneManager = nullptr;
-	IGUIEnvironment* guiEnvironment = nullptr;
 #ifdef _DEBUG
 	IGUIStaticText* debugPointer = nullptr;
 #endif
 public:
+	ISceneManager* sceneManager = nullptr;
+	IVideoDriver* driver = nullptr;
+	IGUIEnvironment* guiEnvironment = nullptr;
 	Renderer();
 	bool IsOpen();
 	void Update();
