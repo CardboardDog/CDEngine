@@ -8,5 +8,6 @@ public:
 	Scene(Renderer* renderer);
 	void AddComponent(Component* component);
 	void AddComponent(Camera* camera);
+	void SetSkybox(stringw textureA, stringw textureB, stringw textureC, stringw textureD, stringw textureE, stringw textureF);
 };
 

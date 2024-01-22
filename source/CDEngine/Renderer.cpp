@@ -10,13 +10,14 @@ Renderer::Renderer(){
 	this->sceneManager = this->device->getSceneManager();
 	this->guiEnvironment = this->device->getGUIEnvironment();
 #ifdef _DEBUG
-	this->debugPointer = this->guiEnvironment->addStaticText(L"CDEngine (debug) \nFPS: ? \ndriver: ?", rect<s32>(0, 0, 260, 32), false);
+	this->debugPointer = this->guiEnvironment->addStaticText(L"CDEngine (debug) \nFPS: ? \ndriver: ?", rect<s32>(0, 0, 260, 64), false);
 #endif
+	this->lastTimer = device->getTimer()->getTime();
 }
 bool Renderer::IsOpen(){
 	return this->device->run();
 }
-void Renderer::Update(){	
+void Renderer::Update(){
 	if(this->device->isWindowActive()){
 		this->driver->beginScene(true, true, SColor(255, 255, 255, 255));
 		this->sceneManager->drawAll();
@@ -27,8 +28,13 @@ void Renderer::Update(){
 		_fpsTempStr_ += this->driver->getFPS();
 		_fpsTempStr_ += L"\nDriver: ";
 		_fpsTempStr_ += this->driver->getName();
+		_fpsTempStr_ += L"\nDelta Time: ";
+		_fpsTempStr_ += this->deltaTime;
 		this->debugPointer->setText(_fpsTempStr_.c_str());
 #endif
+		this->deltaTimer = device->getTimer()->getTime()-this->lastTimer;
+		this->lastTimer = device->getTimer()->getTime();
+		this->deltaTime = deltaTimer*0.001f;
 	}
 	else this->device->yield();
 }

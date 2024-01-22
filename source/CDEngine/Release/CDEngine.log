@@ -1,4 +1,0 @@
-﻿  Main.cpp
-C:\Users\Edgew\CDEngine\source\CDEngine\Main.cpp(1,10): fatal  error C1083: Cannot open include file: 'irrlicht.h': No such file or directory
-  Renderer.cpp
-C:\Users\Edgew\CDEngine\source\CDEngine\Renderer.h(2,10): fatal  error C1083: Cannot open include file: 'irrlicht.h': No such file or directory
